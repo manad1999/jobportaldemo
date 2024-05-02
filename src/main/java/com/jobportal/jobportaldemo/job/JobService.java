@@ -10,8 +10,8 @@ public interface JobService {
 	
 	public Job postJob(Job job);
 	
-	public Job updateJob(Job job);
+	public Job updateJob(Long id, Job job);
 	
-	public void deleteJob(Long id);
+	public boolean deleteJob(Long id);
 
 }
