@@ -1,9 +1,14 @@
 package com.jobportal.jobportaldemo.job;
 
+import org.hibernate.annotations.ManyToAny;
+
+import com.jobportal.jobportaldemo.company.Company;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Job {
@@ -16,6 +21,8 @@ public class Job {
 	private int maxSalary;
 	private String location;
 	
+	@ManyToOne
+	private Company company;
 	
 	public Job() {
 		
@@ -27,6 +34,12 @@ public class Job {
 		this.minSalary = minSalary;
 		this.maxSalary = maxSalary;
 		this.location = location;
+	}
+	public Company getCompany() {
+		return company;
+	}
+	public void setCompany(Company company) {
+		this.company = company;
 	}
 	public long getId() {
 		return id;
